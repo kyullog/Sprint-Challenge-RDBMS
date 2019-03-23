@@ -41,6 +41,9 @@ A Relational Database Management System (RDBMS) is software that is used to work
 Tables need a primary key so that there is a unique, easily readable method to identify each individual record inside a table.
 
 1. What is the name given to a table column that references the primary key on another table.
+
+A foreign key.
+
 1. What do we need in order to have a _many to many_ relationship between two tables.
 
 ## Project Set Up
