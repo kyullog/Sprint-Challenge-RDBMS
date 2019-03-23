@@ -19,4 +19,15 @@ router.post("/", async (req, res) => {
   }
 });
 
+router.get("/", async (req, res) => {
+  try {
+    const actions = await db.get();
+    res.status(200).json(actions);
+  } catch (err) {
+    res
+      .status(500)
+      .json({ error: "There was a problem retrieving the actions" });
+  }
+});
+
 module.exports = router;
