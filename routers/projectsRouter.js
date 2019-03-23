@@ -16,6 +16,18 @@ router.post("/", async (req, res) => {
   }
 });
 
+router.get("/", async (req, res) => {
+  try {
+    const projects = await db.get();
+    res.status(200).json(projects);
+  } catch (err) {
+    console.log(err);
+    res
+      .status(500)
+      .json({ error: "There was a problem retrieving the projects" });
+  }
+});
+
 router.get("/:id", async (req, res) => {
   const id = req.params.id;
   try {
