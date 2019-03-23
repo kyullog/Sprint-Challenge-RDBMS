@@ -8,6 +8,7 @@ module.exports = {
   get: () => {
     return db("actions")
       .select(
+        "actions.id",
         "action_description as description",
         "notes",
         "action_completed as completed",
