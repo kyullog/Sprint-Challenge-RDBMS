@@ -5,9 +5,12 @@ exports.up = function(knex, Promise) {
     tbl.text("notes");
     tbl.boolean("action_completed").defaultTo(false);
     tbl
-      .foreign("project_id")
-      .references("projects.id")
-      .unsigned();
+      .integer("project_id")
+      .references("id")
+      .inTable("projects")
+      .unsigned()
+      .onDelete("CASCADE")
+      .onUpdate("CASCADE");
   });
 };
 
