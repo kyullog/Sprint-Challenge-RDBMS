@@ -6,9 +6,9 @@ exports.up = function(knex, Promise) {
     tbl.boolean("action_completed").defaultTo(false);
     tbl
       .integer("project_id")
+      .unsigned()
       .references("id")
       .inTable("projects")
-      .unsigned()
       .onDelete("CASCADE")
       .onUpdate("CASCADE");
   });
