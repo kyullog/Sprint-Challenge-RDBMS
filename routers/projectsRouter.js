@@ -16,4 +16,31 @@ router.post("/", async (req, res) => {
   }
 });
 
+router.get("/:id", async (req, res) => {
+  const id = req.params.id;
+  try {
+    const project = await db.getById(id);
+    const actions = await db.getActionsByProject(id);
+    const formatActions = actions.map(action => {
+      return {
+        id: action.id,
+        description: action.action_description,
+        notes: action.notes,
+        completed: !!action.action_completed
+      };
+    });
+    const formatProject = {
+      id: project.id,
+      name: project.project_name,
+      description: project.project_description,
+      completed: !!project.project_completed,
+      actions: formatActions
+    };
+    res.status(200).json(formatProject);
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ error: "There was a problem getting the project" });
+  }
+});
+
 module.exports = router;
