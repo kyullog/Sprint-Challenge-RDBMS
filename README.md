@@ -46,6 +46,8 @@ A foreign key.
 
 1. What do we need in order to have a _many to many_ relationship between two tables.
 
+You will need a third table to describe the various relationships between the two tables. This table will hold foreign keys that will reference the primary keys in the other two tables.
+
 ## Project Set Up
 
 Follow these steps for starting your project.
