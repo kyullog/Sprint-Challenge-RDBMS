@@ -4,7 +4,7 @@ exports.seed = function(knex, Promise) {
     .truncate()
     .then(function() {
       // Inserts seed entries
-      return knex("truncate").insert([
+      return knex("actions").insert([
         {
           action_description: "Rinse off the dishes",
           notes: "scrape off any stuck on protein",
