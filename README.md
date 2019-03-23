@@ -36,15 +36,15 @@ Demonstrate your understanding of this week's concepts by answering the followin
 
 A Relational Database Management System (RDBMS) is software that is used to work with relational databases. Structured Query Language (SQL) is a standardized language used within an RDBMS to manipulate the information stored within the database.
 
-1. Why do tables need a `primary key`?
+2. Why do tables need a `primary key`?
 
 Tables need a primary key so that there is a unique, easily readable method to identify each individual record inside a table.
 
-1. What is the name given to a table column that references the primary key on another table.
+3. What is the name given to a table column that references the primary key on another table.
 
 A foreign key.
 
-1. What do we need in order to have a _many to many_ relationship between two tables.
+4. What do we need in order to have a _many to many_ relationship between two tables.
 
 You will need a third table to describe the various relationships between the two tables. This table will hold foreign keys that will reference the primary keys in the other two tables.
 
