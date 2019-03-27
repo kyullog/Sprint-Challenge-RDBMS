@@ -5,13 +5,13 @@ const db = require("../data/helpers/actionHelpers.js");
 router.post("/", async (req, res) => {
   try {
     const action = req.body;
-    if (!action.action_description || !action.project_id) {
+    if (action.action_description && action.project_id) {
+      const posted = await db.insert(action);
+      res.status(201).json(posted);
+    } else {
       res
         .status(400)
         .json({ error: "Please provide an action name and valid project id" });
-    } else {
-      const posted = await db.insert(action);
-      res.status(201).json(posted);
     }
   } catch (err) {
     console.log(err);

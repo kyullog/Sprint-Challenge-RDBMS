@@ -5,11 +5,11 @@ const db = require("../data/helpers/projectHelpers.js");
 router.post("/", async (req, res) => {
   try {
     const project = req.body;
-    if (!project.project_name) {
-      res.status(400).json({ error: "A name is required for your project" });
-    } else {
+    if (project.project_name) {
       const added = await db.insert(project);
       res.status(201).json(added);
+    } else {
+      res.status(400).json({ error: "A name is required for your project" });
     }
   } catch (err) {
     res.status(500).json({ error: "There was a problem adding the project" });
